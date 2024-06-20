@@ -26,7 +26,7 @@ class Program
             prompt._prompts.Add(item);
         }
         
-        string[] options=["1.Write","2.Display","3.Load","4.Save","5.Quit"];
+        string[] options=["1.Write","2.Display","3.Load","4.Save","5.Save As JSON","6.load from JSON","7.Quit"];
         //int len= int.Parse(options.Count);
        
         do{
@@ -55,6 +55,14 @@ class Program
                  Console.WriteLine("What is the filename ");
                 string filename=Console.ReadLine();
                 journal.SaveToFile(filename);
+            }else if(response==5){
+                 Console.WriteLine("What is the filename ");
+                string filename=Console.ReadLine();
+                journal.SaveAsJSON(filename);
+            }else if(response==6){
+                 Console.WriteLine("What is the filename ");
+                string filename=Console.ReadLine();
+                journal.LoadFromJSON(filename);
             }
         }while(response < options.Length);
     }
