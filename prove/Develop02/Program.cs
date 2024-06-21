@@ -40,10 +40,20 @@ class Program
                 string promptRandomText=prompt.GetRandomPrompt();
                 Console.WriteLine($"{promptRandomText}");
                 string answer= Console.ReadLine();
+
+                //To improve the way of saving text in CSV file, we will replace all commas present in the 
+                // Provided text by a semicolon
+                answer= answer.Replace(",",";");
+                Console.WriteLine("What is your current mood ?");
+                string mood= Console.ReadLine();
+                Console.Write("What is your motivation level? ...");
+                int motivation= int.Parse(Console.ReadLine());
                 Entry newEntry=new Entry();
                 newEntry._date=dateText;
                 newEntry._promptText=promptRandomText;
                 newEntry._entryText=answer;
+                newEntry._mood=mood;
+                newEntry._motivationLevel=motivation;
                 journal.AddEntry(newEntry);
             }else if(response==2){
                 journal.DisplayAll();

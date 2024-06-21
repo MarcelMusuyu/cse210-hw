@@ -1,17 +1,23 @@
 [
   {
-    "_date": "20/06/2024",
+    "_date": "21/06/2024",
     "_promptText": "Which emotion should I promote today?",
-    "_entryText": "happyness"
+    "_entryText": "happyness",
+    "_mood": "happy",
+    "_motivationLevel": 9
   },
   {
-    "_date": "20/06/2024",
-    "_promptText": "Which emotion should I promote today?",
-    "_entryText": "joyce"
+    "_date": "21/06/2024",
+    "_promptText": "How can I bring any contribution to my community today?",
+    "_entryText": "Teaching english to church members",
+    "_mood": "excited",
+    "_motivationLevel": 10
   },
   {
-    "_date": "20/06/2024",
+    "_date": "21/06/2024",
     "_promptText": "If the lord asked me one thing he could do today in my life, what would it be?",
-    "_entryText": "Let him bless my life"
+    "_entryText": "I will asked him to bless my life",
+    "_mood": "confident",
+    "_motivationLevel": 9
   }
 ]
