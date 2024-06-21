@@ -1,6 +1,18 @@
 using System;
 using System.Collections.Generic;
 
+/*
+    I exceed the requirements by adding two additional methods, 
+    Save as Json that allows to record entries in the JSON Format
+    and Load from Json that allows to display data from the JSON File
+
+    Think of other problems that keep people from writing in their journal and address one of those.
+    for these I added two additional properties which are mood and motivation level
+
+    Improve the process of saving and loading to save as a .csv file that could be opened 
+    in Excel (make sure to account for quotation marks and commas correctly in your content.
+    I managed this by using the Replace method and Escape characters \" to allow Double quote before saving content
+*/
 class Program
 {
     static void Main(string[] args)
