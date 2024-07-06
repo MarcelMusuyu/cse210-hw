@@ -63,7 +63,7 @@ public class ReflectingActivity: Activity{
 
     public void Run(){
         DisplayStartingMessage();
-        
+        //New Updates
         DisplayQuestions();
        
     }
@@ -101,7 +101,7 @@ public class ReflectingActivity: Activity{
         DisplayPrompt();
         Random rand= new Random();
         int second= rand.Next(2,10);
-        Console.WriteLine("Now ponder on each of the following questions as they related with this experience")
+        Console.WriteLine("Now ponder on each of the following questions as they related with this experience");
         Console.Write("You may begin in: ");
         ShowCountDown(second);
         while(DateTime.Now < futureTime){
