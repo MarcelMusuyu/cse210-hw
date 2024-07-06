@@ -105,7 +105,7 @@ public class ReflectingActivity: Activity{
         Console.Write("You may begin in: ");
         ShowCountDown(second);
         while(DateTime.Now < futureTime){
-           int index=rand(_questions.Count);
+           int index=rand.Next(_questions.Count);
            Console.Write(_questions[index]);
            ShowSpinner(duration);
            Thread.Sleep(200);

@@ -48,7 +48,7 @@ public class Activity{
     }
 
     public void ShowSpinner(int seconds){
-        Console.Write("Please wait while ");
+       
         Console.ForegroundColor = ConsoleColor.Green;
         Console.Write($"{seconds} seconds");
         Console.ResetColor();
@@ -66,7 +66,7 @@ public class Activity{
         }
         Console.ResetColor();
 
-        Console.WriteLine();
+        Console.WriteLine("\n");
     }
 
 
