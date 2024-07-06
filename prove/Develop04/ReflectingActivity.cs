@@ -105,17 +105,34 @@ public class ReflectingActivity: Activity{
         Console.Write("You may begin in: ");
         ShowCountDown(second);
         while(DateTime.Now < futureTime){
+           List<string> usedQuestions = new List<string>();
            int index=rand.Next(_questions.Count);
+
+
            Console.Write(_questions[index]);
            ShowSpinner(duration);
            Thread.Sleep(200);
+           // This Code checks if an element exists in the list, stores it in another list and removes 
+           // the old list to prevent the Random picks it twice
+            if (_questions.Contains(_questions[index]))
+            {
+                 usedQuestions.Add(_questions[index]);
+                _questions.RemoveAt(index);
+                //Console.WriteLine("The number is present");
+               
+                index = rand.Next(0, _questions.Count);
+            }
+
+            
+            
+         
         }
 
         Console.WriteLine("---------------------------\n\n");
         Console.WriteLine("Well done !!! \n");
         ShowSpinner(duration);
         Thread.Sleep(200);
-        Console.WriteLine($"You have completed another {duration} of Listing Activity");
+        Console.WriteLine($"You have completed another {duration} of Reflecting Activity");
         ShowSpinner(duration);
         Thread.Sleep(200);
         

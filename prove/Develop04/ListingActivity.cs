@@ -86,24 +86,5 @@ public class ListingActivity: Activity{
         return responses;
     }
 
-    public void SingleRandom(){
-         int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-        List<int> usedNumbers = new List<int>();
-
-        Random random = new Random();
-
-        for (int i = 0; i < 5; i++)
-        {
-            int randomIndex = random.Next(0, numbers.Length);
-
-            // Vérifier si le nombre a déjà été choisi
-            while (usedNumbers.Contains(numbers[randomIndex]))
-            {
-                randomIndex = random.Next(0, numbers.Length);
-            }
-
-            Console.WriteLine(numbers[randomIndex]);
-            usedNumbers.Add(numbers[randomIndex]);
-        }
-    }
+    
 }
