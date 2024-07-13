@@ -1,6 +1,6 @@
 public class SimpleGoal: Goal{
     
-    private bool _isComplete{get;set;};
+    private bool _isComplete;
     public SimpleGoal(){
         
     }
@@ -12,6 +12,9 @@ public class SimpleGoal: Goal{
         _isComplete=true;
     }
     public override bool IsComplete(){
+        return _isComplete;
+    }
+    public bool GetIsComplete(){
         return _isComplete;
     }
     public override string GetStringRepresentation(){

@@ -1,13 +1,21 @@
 public class ChecklistGoal: Goal{
 
     private int _amountCompleted;
-    private int _target {get; set;};
-    private int _bonus{get;set;};
+    private int _target {get; set;}
+    private int _bonus{get;set;}
 
     public ChecklistGoal(){
         _amountCompleted=0;
         _target=0;
         _bonus=0;
+    }
+
+
+    public int GetTarget(){
+        return _target;
+    }
+    public int GetBonus(){
+        return _bonus;
     }
     public ChecklistGoal(string shortName, string description, int points, int target, int bonus):base(shortName, description, points){
         _amountCompleted=0;

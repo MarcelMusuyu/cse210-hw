@@ -53,20 +53,26 @@ public class GoalManager{
         Console.Write("Write the filename: ");
         string filename=Console.ReadLine();
         using(StreamWriter outputFile = new StreamWriter(filename)){
+        
          foreach(Goal goal in _goalList){
-            if(SimpleGoal.IsInstanceOfType(goal)){
-                 outputFile.WriteLine($"{goal.GetType()}:{goal._shortName},{goal._description},{goal._points},{goal._isComplete}");
-            }else if(ChecklistGoal.IsInstanceOfType(goal)){
-                 outputFile.WriteLine($"{goal.GetType()}:{goal._shortName},{goal._description},{goal._points},{goal._target},{goal._bonus}");
+            var type = goal.GetType();
+            if(type.ToString() =="SimpleGoal"){
+                SimpleGoal goal1 = goal as SimpleGoal;
+                 outputFile.WriteLine($"{goal.GetType()}:{goal1.GetShortName()},{goal1.GetDescription()},{goal1.GetPoints()},{goal1.GetIsComplete()}");
+            }else if(type.ToString()=="ChecklistGoal"){
+                ChecklistGoal goal2= goal as ChecklistGoal;
+                 outputFile.WriteLine($"{goal.GetType()}:{goal2.GetShortName()},{goal2.GetDescription()},{goal2.GetPoints()},{goal2.GetTarget()},{goal2.GetBonus()}");
            
-            }else if(EternalGoal.IsInstanceOfType(goal)){
-                 outputFile.WriteLine($"{goal.GetType()}:{goal._shortName},{goal._description},{goal._points}");
+            }else if(type.ToString()=="EternalGoal"){
+                EternalGoal goal3= goal as EternalGoal;
+                 outputFile.WriteLine($"{goal.GetType()}:{goal3.GetShortName()},{goal3.GetDescription()},{goal3.GetPoints()}");
            
             }else{
                  outputFile.WriteLine("Not an object in a specific list");
             }
 
             
+        }
         }
        
         
