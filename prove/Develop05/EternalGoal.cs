@@ -10,6 +10,6 @@ public class EternalGoal: Goal{
         return false;
     }
     public override string GetStringRepresentation(){
-        return "Bonjour";
+        return $"{this}:{base.GetShortName()},{base.GetDescription()},{base.GetPoints()}";
     }
 }

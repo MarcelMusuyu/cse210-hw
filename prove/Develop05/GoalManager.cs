@@ -24,20 +24,35 @@ public class GoalManager{
    
     //This function will display a list of goals name present in our file
     private  void ListGoalNames(){
-        Console.WriteLine("");
+        string filename = "goals.txt";
+        using (StreamReader reader = new StreamReader(filename))
+        {
+            // Skip the first line (header)
+            reader.ReadLine();
+
+            string line;
+            int indice=1;
+            while((line = reader.ReadLine()) != null)
+            {
+                string[] parts = line.Split(":");
+
+                string goal = parts[0];
+               
+                Console.WriteLine($"{indice}. {goal}");
+                indice++;
+            }
+    }
     }
 
     private void RecordEvent(){
         //This function will display a list of goals name present in our file
-        ListGoalNames();
+       
          Console.WriteLine("The types of Goals are:");
-         Console.WriteLine($"\t1. Simple Goal");
-         Console.WriteLine($"\t2. Eternal Goal");
-         Console.WriteLine($"\t3. Checklist Goal");
+         ListGoalNames();
          Console.Write("Which type of goal did you accomplish ?");
          int choice=int.Parse(Console.ReadLine());
-         int filePoints=0;
-        Console.WriteLine($"Congratulations! you have earned {filePoints}");
+         //int filePoints=0;
+         //Console.WriteLine($"Congratulations! you have earned {filePoints}");
     }
 
     private void SaveGoalsAsJson(){
@@ -55,17 +70,18 @@ public class GoalManager{
         using(StreamWriter outputFile = new StreamWriter(filename)){
         outputFile.WriteLine($"{_points}");
          foreach(Goal goal in _goalList){
+           
             var type = goal.GetType();
             if(type.ToString() =="SimpleGoal"){
                 SimpleGoal goal1 = goal as SimpleGoal;
-                 outputFile.WriteLine($"{goal.GetType()}:{goal1.GetShortName()},{goal1.GetDescription()},{goal1.GetPoints()},{goal1.GetIsComplete()}");
+                  outputFile.WriteLine(goal1.GetStringRepresentation());
             }else if(type.ToString()=="ChecklistGoal"){
                 ChecklistGoal goal2= goal as ChecklistGoal;
-                 outputFile.WriteLine($"{goal.GetType()}:{goal2.GetShortName()},{goal2.GetDescription()},{goal2.GetPoints()},{goal2.GetTarget()},{goal2.GetBonus()}");
+                 outputFile.WriteLine(goal2.GetStringRepresentation());
            
             }else if(type.ToString()=="EternalGoal"){
                 EternalGoal goal3= goal as EternalGoal;
-                 outputFile.WriteLine($"{goal.GetType()}:{goal3.GetShortName()},{goal3.GetDescription()},{goal3.GetPoints()}");
+                 outputFile.WriteLine(goal3.GetStringRepresentation());
            
             }else{
                  outputFile.WriteLine("Not an object in a specific list");
@@ -208,6 +224,7 @@ public class GoalManager{
                        
                         Console.ForegroundColor= ConsoleColor.DarkBlue;
                         Console.WriteLine("----------Record Event--------------");
+                        RecordEvent();
                         Console.ResetColor();
                         break;
                     

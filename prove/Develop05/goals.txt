@@ -1,4 +1,4 @@
 0
-SimpleGoal:designing software,I plan to learn more skills in software area,100,False
-EternalGoal:reading scripture,This goal will help me increase my prociency,30
-ChecklistGoal:practice english speaking,a consistent english speaking practice in 1 hour,150,5,20
+SimpleGoal:Reading business manual,the reading will increase my business brand,200,False
+EternalGoal:practice english,a plan of practicing speaking skill,120
+ChecklistGoal:learning new skill,new programming language,100,3,30

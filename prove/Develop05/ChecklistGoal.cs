@@ -29,7 +29,7 @@ public class ChecklistGoal: Goal{
        return _amountCompleted >= _target;
     }
     public override string GetStringRepresentation(){
-        return "bonjour";
+        return $"{this}:{base.GetShortName()},{base.GetDescription()},{base.GetPoints()},{_target},{_bonus}";
     }
 
     public override string GetDetailsString() {
