@@ -1,1 +1,4 @@
-SimpleGoal:writting code,to build a real world application,300,False
+0
+SimpleGoal:designing software,I plan to learn more skills in software area,100,False
+EternalGoal:reading scripture,This goal will help me increase my prociency,30
+ChecklistGoal:practice english speaking,a consistent english speaking practice in 1 hour,150,5,20

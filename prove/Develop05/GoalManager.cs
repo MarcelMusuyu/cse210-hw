@@ -53,7 +53,7 @@ public class GoalManager{
         Console.Write("Write the filename: ");
         string filename=Console.ReadLine();
         using(StreamWriter outputFile = new StreamWriter(filename)){
-        
+        outputFile.WriteLine($"{_points}");
          foreach(Goal goal in _goalList){
             var type = goal.GetType();
             if(type.ToString() =="SimpleGoal"){
