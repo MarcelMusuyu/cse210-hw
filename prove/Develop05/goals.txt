@@ -1,4 +1,3 @@
-0
 SimpleGoal:Reading business manual,the reading will increase my business brand,200,False
 EternalGoal:practice english,a plan of practicing speaking skill,120
 ChecklistGoal:learning new skill,new programming language,100,3,30

@@ -7,6 +7,7 @@ public class GoalManager{
 
     private List<Goal> _goalList;
     Goal goal;
+    Goal _newGoal;
 
     public GoalManager(){
         _points=0;
@@ -53,6 +54,62 @@ public class GoalManager{
          int choice=int.Parse(Console.ReadLine());
          //int filePoints=0;
          //Console.WriteLine($"Congratulations! you have earned {filePoints}");
+         int count=2;
+         string newLine="SimpleGoal:Exercise,Go for a run,10,False";
+         using (StreamReader reader = new StreamReader("goals.txt"))
+            {
+                string line;
+                
+                while ((line = reader.ReadLine()) != null)
+                {
+                   if(choice+1 == count){
+                        newLine=line;
+                        break;
+                   } 
+                   count++;
+                   
+                }
+               
+            }
+            Goal loadedGoal = CreateNewGoal(newLine);
+            Console.WriteLine($"Congratulations! you have earned {loadedGoal.GetPoints()}");
+
+    }
+
+
+        public  Goal CreateNewGoal(string goalString)
+    {
+        string[] parts = goalString.Split(':');
+        if (parts.Length != 2)
+        {
+            Console.WriteLine("Invalid goal string format.");
+        }
+        
+
+        string className=parts[0];
+
+        string[] details = parts[1].Split(',');
+        string shortName = details[0];
+        string description = details[1];
+        int points = int.Parse(details[2]);
+        if (className=="SimpleGoal"){
+             bool isComplete = bool.Parse(details[3]);
+            _newGoal = new SimpleGoal(shortName, description, points);
+           
+            _newGoal.RecordEvent();
+        }else if(className == "EternalGoal"){
+            _newGoal= new EternalGoal(shortName,description,points);
+            _newGoal.RecordEvent();
+        }else if (className=="ChecklistGoal"){
+             int target = int.Parse(details[3]);
+             int bonus=int.Parse(details[4]);
+            _newGoal= new ChecklistGoal(shortName,description,points,target,bonus);
+            _newGoal.RecordEvent();
+        }
+       
+       
+
+        return _newGoal;
     }
 
     private void SaveGoalsAsJson(){
