@@ -43,6 +43,6 @@ public class Weather
     // Method to provide all weather details
     public string GetAllWeatherDetails()
     {
-        return $"Forecast: {_forecast}\nTemperature: {_temperature} degrees\nWind Speed: {_windSpeed} km/h\nCloud State: {_cloudState}\nHumidity: {_humidity}%";
+        return $"Forecast: {_forecast} Temperature: {_temperature} degrees\nWind Speed: {_windSpeed} km/h\nCloud State: {_cloudState}\nHumidity: {_humidity}%";
     }
 }
